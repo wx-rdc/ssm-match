@@ -1,0 +1,18 @@
+# CARS 5-way 1-shot（协议同 mini_1shot.yaml）
+# 由 tools/gen_openi_boots.py 生成，勿手改。
+
+seed: 42
+n_way: 5
+k_shot: 1
+n_query: 15
+episodes_per_epoch: 100
+batch_episodes: 4
+epochs: 200
+lr: 0.0001
+weight_decay: 0.0001
+aux_weight: 0.1
+query_chunk: 10
+num_workers: 8
+val_episodes: 200
+eval_every: 10
+vim_ckpt: vim_t_midclstok_ft_78p3acc.pth

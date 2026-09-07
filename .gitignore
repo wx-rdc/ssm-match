@@ -1,0 +1,16 @@
+# secrets
+.env
+
+# datasets & run outputs (data/splits IS tracked)
+data/*
+!data/splits/
+output/
+
+# artifacts
+__pycache__/
+*.pyc
+*.pth
+*.pt
+*.whl
+*.log
+openi_env_report.json

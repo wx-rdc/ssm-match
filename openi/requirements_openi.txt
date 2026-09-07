@@ -1,0 +1,11 @@
+# 启智云脑任务依赖（镜像已含 torch/CUDA，此处不重复指定 torch）
+# 安装：pip install -r requirements_openi.txt -i https://mirrors.aliyun.com/pypi/simple/
+# 注意：清华镜像限流严重，勿用；causal-conv1d/mamba-ssm 优先用挂载模型
+# edwardzhu/cu118-torch210-wheels 中的预编译 wheel（见 env_check.py 自动安装）
+einops>=0.7.0
+timm>=0.9.16
+# 以下两个包 PyPI 只有源码包，仅作无 wheel 时的兜底（需镜像带 nvcc）：
+# causal-conv1d>=1.4.0
+# mamba-ssm==2.2.2
+# 云脑容器路径工具（平台任务启动时通常已自动安装）
+c2net>=1.0.0

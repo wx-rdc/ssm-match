@@ -1,0 +1,28 @@
+# 因子化消融配置模板（mini 5-way 1-shot）。
+# P2 克隆本文件到 configs/ablations/<因子>.yaml，仅改动 ablation 段对应键。
+# 完整模型 = 全部开关取默认（见 configs/mini_1shot.yaml）。
+seed: 42
+n_way: 5
+k_shot: 1
+n_query: 15
+episodes_per_epoch: 100
+batch_episodes: 4
+epochs: 200
+lr: 1.0e-4
+weight_decay: 1.0e-4
+aux_weight: 0.1        # 消融 (d) 组件时置 0
+query_chunk: 10
+num_workers: 8
+val_episodes: 200
+eval_every: 10
+vim_ckpt: vim_t_midclstok_ft_78p3acc.pth
+
+# ---- 消融开关（与 SSMMatch/CrossImageMatcher 参数一一对应）----
+# use_prior: true        # false = 去类别先验 token（零状态启动）
+# use_sep: true          # false = 去 [SEP] 分隔符
+# scan_direction: bi     # fwd / bwd = 单向扫描
+# use_dir_gate: true     # false = 方向对称平均（仅 bi 有意义）
+# use_evi_gate: true     # false = 去证据门控
+# score_sigmoid: false   # true = 打分头 sigmoid（R1-4 消融）
+# d_state: 16            # 8 / 32 = 状态维度敏感性
+# scales: [f1, f2, f3]   # 单尺度消融时改 [f1] / [f2] / [f3]

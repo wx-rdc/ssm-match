@@ -1,0 +1,8 @@
+# SSM-Match 训练依赖（torch 按平台镜像自带，勿在此重复安装）
+# 启智平台：causal-conv1d / mamba-ssm 用挂载模型 edwardzhu/cu118-torch210-wheels 中的预编译 wheel
+einops>=0.7.0
+timm>=0.9.16
+pyyaml>=6.0
+pillow>=10.0
+mamba-ssm==2.2.2        # 需与镜像 torch/CUDA 匹配的 wheel
+causal-conv1d>=1.4.0    # 同上
