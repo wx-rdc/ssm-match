@@ -53,9 +53,9 @@ huggingface-cli download hustvl/Vim-tiny-midclstok --local-dir data/vim-tiny-mid
 | Dataset | Source | Loader layout |
 |---|---|---|
 | miniImageNet | verified mirror: [edwardzhu/mini-imagenet-ravi](https://www.modelscope.cn/datasets/edwardzhu/mini-imagenet-ravi) (zip with standard Ravi filenames + 64/16/20 class-split CSVs) | flat `data/mini-imagenet/images/*.jpg` (100 classes x 600 images) |
-| CUB-200-2011 | official Caltech release (or public registry mirrors) | `<cub_root>/images/<class>/*.jpg` (200 classes) |
+| CUB-200-2011 | verified mirror: [OpenDataLab/CUB-200-2011](https://www.modelscope.cn/datasets/OpenDataLab/CUB-200-2011) (official archive; 200 classes, 11,788 images) | `<cub_root>/images/<class>/*.jpg` (200 classes) |
 | Stanford Cars | verified mirror: [edwardzhu/stanford-cars-196cls](https://www.modelscope.cn/datasets/edwardzhu/stanford-cars-196cls) (merged 196-class folders, 16,185 images) | `<cars_root>/<class>/*.jpg` |
-| CIFAR-100 (for CIFAR-FS) | official [cifar-100-python](https://www.cs.toronto.edu/~kriz/cifar-100-python.tar.gz) | `data/cifar-100-python/` (batch files) |
+| CIFAR-100 (for CIFAR-FS) | verified mirror: [OpenDataLab/CIFAR-100](https://www.modelscope.cn/datasets/OpenDataLab/CIFAR-100) (`cifar-100-python.tar.gz`, byte-identical to the official release) | `data/cifar-100-python/` (batch files) |
 
 Each mirror's README on ModelScope contains the exact extraction/flatten commands and the
 verification results (file counts / class counts). Extract datasets under `data/` (git-ignored).
@@ -66,8 +66,8 @@ verification results (file counts / class counts). Extract datasets under `data/
 |---|---|---|
 | miniImageNet | Ravi & Larochelle 64/16/20 **class** split | shipped: `data/splits/mini/{train,val,test}.csv` |
 | Stanford Cars | deterministic 130/17/49 class split (seed 42) | shipped: `data/splits/cars/{train,val,test}.txt` |
-| CUB-200-2011 | deterministic 100/50/50 class split (seed 42) | `python scripts/make_class_splits.py --root <cub_root>/images --out data/splits/cub --ratio 100 50 50 --seed 42` |
-| CIFAR-FS | Bertinetto standard 12/4/4 superclass split (60/20/20 classes) | `python scripts/prepare_cifar_fs.py --cifar_root data/cifar-100-python --out data/splits/cifar_fs` |
+| CUB-200-2011 | deterministic 100/50/50 class split (seed 42) | shipped: `data/splits/cub/{train,val,test}.txt` |
+| CIFAR-FS | Bertinetto standard 12/4/4 superclass split (60/20/20 classes) | shipped: `data/splits/cifar_fs/{train,val,test}.txt` |
 
 CUB/Cars have no official few-shot class split; we use fixed-seed deterministic splits
 (identical across all seeds/runs, so all reported numbers share one split).
