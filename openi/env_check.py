@@ -3,7 +3,7 @@
 在任务容器内依次验证：
 1. GPU / CUDA / PyTorch 版本与显存；
 2. mamba-ssm 与 causal-conv1d 可用性（缺失则自动 pip 安装），并执行一次 GPU 选择性扫描前向；
-3. 挂载的 Vim-Tiny 预训练权重可加载，统计参数量（论文骨干应为 ~7.9M，SSM-Match 总冻结参数 8.7M）。
+3. 挂载的 Vim-Tiny 预训练权重可加载，统计参数量（骨干约 7.0M 全部冻结，匹配模块约 2.3M 可训练，合计约 9.4M）。
 
 用法（本地调试）：
     python openi/env_check.py --model_dir /path/to/vim-tiny-midclstok
